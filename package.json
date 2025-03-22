@@ -1,0 +1,22 @@
+{
+  "name": "sensafriq",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server/src/index.js",
+    "server": "nodemon server/src/index.js",
+    "client": "npm start --prefix client",
+    "cleanup-ports": "node scripts/cleanup-ports.js",
+    "predev": "npm run cleanup-ports",
+    "dev": "concurrently --kill-others \"npm run server\" \"npm run client\"",
+    "install-all": "npm install && npm install --prefix client && npm install --prefix server",
+    "seed": "cd server && npm run seed"
+  },
+  "keywords": [],
+  "author": "Viktor Tochi",
+  "license": "ISC",
+  "description": "African-themed trivia platform",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
