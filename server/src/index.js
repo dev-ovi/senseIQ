@@ -13,6 +13,7 @@ dotenv.config({ path: path.resolve(__dirname, "../.env") });
 const authRoutes = require("./routes/auth.routes");
 const userRoutes = require("./routes/user.routes");
 const quizRoutes = require("./routes/quiz.routes");
+const categoryRoutes = require("./routes/category.routes");
 
 // Initialize express app
 const app = express();
@@ -29,6 +30,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/quizzes", quizRoutes);
+app.use("/api/categories", categoryRoutes);
 
 // Default route
 app.get("/", (req, res) => {

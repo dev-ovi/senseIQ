@@ -879,11 +879,16 @@ async function seedDatabase() {
     console.log("5. Email: user@example.com | Password: user123 | Level: 1");
     console.log("-------------------------");
 
-    process.exit(0);
+    console.log("Database seeded successfully");
+    return true;
   } catch (error) {
     console.error("Error seeding database:", error);
-    process.exit(1);
+    return false;
   }
 }
 
-seedDatabase();
+// Import and run additional content seeding
+const seedAdditionalContent = require("./seedAdditionalContent");
+seedDatabase().then(() => seedAdditionalContent());
+
+module.exports = seedDatabase;

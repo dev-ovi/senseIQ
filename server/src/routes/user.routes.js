@@ -6,6 +6,9 @@ const {
   adminMiddleware,
 } = require("../middlewares/auth.middleware");
 
+// Get user leaderboard
+router.get("/leaderboard", userController.getLeaderboard);
+
 // Get user profile
 router.get("/:userId", userController.getUserProfile);
 
@@ -14,8 +17,5 @@ router.put("/:userId", authMiddleware, userController.updateUserProfile);
 
 // Get user achievements
 router.get("/:userId/achievements", userController.getUserAchievements);
-
-// Get user leaderboard
-router.get("/leaderboard", userController.getLeaderboard);
 
 module.exports = router;
